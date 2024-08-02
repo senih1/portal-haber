@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Admin Paneli";
+}
+<br />
+@if(TempData["AuthError"] != null)
+{
+    <div class="alert @TempData["AuthErrorCss"] mb-5" role="alert">
+        @TempData["AuthError"]
+    </div>
+}
+<div class="admin-container">
+    <div class="form-container">
+        <div class="form">
+            <h2>Giriş Yap</h2>
+            <form method="post" action="/userlogin">
+                <div class="mb-3">
+                    <p><input class="form-control" type="text" placeholder="Kullanıcı Adı" name="username" required /></p>
+                    <p><input class="form-control" type="password" placeholder="Şifre" name="password" required /></p>
+                    <button class="btn btn-primary">Giriş Yap</button>
+                </div>
+            </form>
+        </div>
+        <div class="separator"></div>
+        <div class="form">
+            <h2>Kayıt Ol</h2>
+            <form method="post" action="/Register">
+                <div class="mb-3">
+                    <p><input class="form-control" type="text" placeholder="Kullanıcı Adı" name="username" required /></p>
+                    <p><input class="form-control" type="password" placeholder="Şifre" name="password" required /></p>
+                    <button class="btn btn-primary">Kayıt Ol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />

@@ -1,0 +1,22 @@
+﻿@model New
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-wrapper">
+                    <img src="@Model.ImageUrl" alt="Description" style="max-width: 60%; height: auto; display: block; margin: 0 auto 20px auto;">
+                    <br />
+                    <div class="pp">
+                        <h2><strong>@Model.Title</strong></h2>
+                        <p>@Model.Contents</p>
+                        <p><strong>Paylaşılma Tarihi :  @Model.CreatedDate.ToString("dd MMMM yy HH:mm")</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

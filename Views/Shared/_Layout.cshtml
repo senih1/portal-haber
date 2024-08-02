@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Site Metas -->
+    <title>Portal Haber - @ViewData["Title"]</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/favicon.ico"/>
+    <link rel="apple-touch-icon" href="~/favicon.ico">
+
+    <!-- Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/style.css" rel="stylesheet" />
+
+    <!-- Responsive styles for this template -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+    <!-- Colors for this template -->
+    <link href="~/css/colors.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="/images/loader.gif" alt="">
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+    <div class="header-section" style="background-color: #f8f9fa; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-title" style="display: flex; justify-content: center; align-items: flex-start; height: 100%;">
+                        <h1 style="margin: 0; font-size: 48px; font-weight: bold;">
+                            <a href="/" style="text-decoration: none; color: #000;">Portal Haber</a>
+                        </h1>
+                    </div><!-- end header-title -->
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+        <div>
+            
+        </div>
+    </div><!-- end header-section -->
+
+    <div class="topbar-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
+                </div><!-- end col -->
+                <div class="col-lg-4 hidden-md-down">
+                    <div class="topmenu text-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="/"><i class="fa fa-star"></i> Anasayfa</a></li>
+                            <li class="list-inline-item"><a href="/admin"><i class="fa fa-pencil"></i> Admin</a></li>
+                            @if (ViewData["username"] != null)
+                            {
+                                <li class="list-inline-item"><i class="fa fa-user-circle-o"></i>@ViewData["username"]</li>
+                                <li class="list-inline-item"><a href="/logout"><i class="fa fa-sign-out"></i>Oturumu Kapat</a></li>
+                            }
+                            else
+                            {
+                                <li class="list-inline-item"><a href="/login"><i class="fa fa-user-circle-o"></i> Kullanıcı Girişi</a></li>
+                            }
+                        </ul><!-- end ul -->
+                    </div><!-- end topmenu -->
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end header-logo -->
+    </div><!-- end topbar -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container" style="text-align:center">
+            &copy; 2024 - Portal Haber
+        </div>
+    </footer>
+
+    <div class="dmtop">Scroll to Top</div>
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/tether.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+</html>

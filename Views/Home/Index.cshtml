@@ -1,0 +1,45 @@
+﻿@model List<New>
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<body>
+    <section class="section">
+        @if (TempData["Login"] != null)
+        {
+            <div class="alert @TempData["LoginCss"] mb-5" role="alert">
+                @TempData["Login"]
+            </div>
+        }
+        <div class="container">
+            <div class="row">
+                @foreach (var post in Model)
+                {
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="blog-box">
+                                    <div class="post-media">
+                                        <a href="detail/@post.Slug">
+                                            <img src="@post.ImageUrl" alt="" class="img-fluid">
+                                            <div class="hovereffect">
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="blog-meta big-meta">
+                                        <h4><a href="detail/@post.Slug">@post.Title</a></h4>
+                                        <p>@post.Summary</p>
+                                        <small>@post.CreatedDate.ToString("dd MMMM yyyy")</small>
+                                    </div>
+                                </div>
+                                <hr class="invis">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <hr class="invis1">
+    </section>
+</body>

@@ -1,0 +1,59 @@
+﻿@model List<New>
+@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<br />
+@if (TempData["Message"] != null)
+{
+    <div class="alert @TempData["MessageCss"] mb-5" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <a href="/admin/users" class="btn btn-primary" style="padding: 10px 20px; font-size: 16px;">Kullanıcı Listesi</a>
+</div>
+    <div >
+        <br />
+        <h2 class="header">Haber Ekle</h2>
+        <form method="post" action="Admin/Add" enctype="multipart/form-data">
+            <div class="mb-3">
+                <p><input class="form-control" type="text" placeholder="Haber Başlığı" name="title" required /></p>
+                <p><textarea class="form-control" name="summary" rows="2" placeholder="Haber Özeti" required></textarea></p>
+                <p><textarea class="form-control" name="contents" rows="4" placeholder="Haber İçeriği" required></textarea></p>
+                <p><input class="form-control" type="text" placeholder="Slug" name="slug" required /></p>
+                <p><input class="form-control" type="file" name="image" accept="image/png,image/jpeg" required /></p>
+                <button class="btn btn-primary">Ekle</button>
+            </div>
+        </form>
+    </div>
+
+    <br />
+    <br />
+    <div class="table-container">
+        <h3 class="header">Haberler</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Başlık</th>
+                    <th scope="col">Eklenme Tarihi</th>
+                    <th scope="col">Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Title</td>
+                        <td>@item.CreatedDate.ToString("dd MMMM yyyy HH:mm")</td>
+                        <td>
+                            <a href="/admin/editnew/@item.Id" class="btn btn-primary">Düzenle</a>
+                            <a href="/admin/deletenew/@item.Id" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

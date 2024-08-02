@@ -1,0 +1,21 @@
+﻿@model New
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<br />
+<div class="unique-wrapper">
+    <div class="unique-form-container">
+        <h2 class="unique-heading">Haber Düzenle</h2>
+        <form method="post" action="/Admin/EditNew" enctype="multipart/form-data" class="unique-form">
+            <div class="unique-form-group">
+                <p><input class="unique-form-input" type="text" placeholder="Haber Başlığı" name="title" value="@Model.Title" required /></p>
+                <p><textarea class="unique-form-input" name="summary" rows="2" placeholder="Haber Özeti" required>@Model.Summary</textarea></p>
+                <p><textarea class="unique-form-input" name="contents" rows="4" placeholder="Haber İçeriği" required>@Model.Contents</textarea></p>
+                <p><input class="unique-form-input" type="text" placeholder="Slug" name="slug" required value="@Model.Slug" /></p>
+                <p><input class="unique-form-input" type="file" name="image" accept="image/png,image/jpeg" required /></p>
+                <button class="unique-submit-btn" type="submit">Düzenle</button>
+            </div>
+        </form>
+    </div>
+</div>
